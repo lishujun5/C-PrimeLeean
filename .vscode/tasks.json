@@ -1,0 +1,33 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++.exe build active file",
+            "command": "C:\\Qt\\Qt5.6.3\\Tools\\mingw492_32\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:\\Qt\\Qt5.6.3\\Tools\\mingw492_32\\bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "cpp.exe build active file",
+            "command": "C:\\Qt\\Qt5.6.3\\Tools\\mingw492_32\\bin\\cpp.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:\\Qt\\Qt5.6.3\\Tools\\mingw492_32\\bin"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
