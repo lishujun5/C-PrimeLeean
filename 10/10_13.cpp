@@ -1,35 +1,49 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
-#include<typeinfo>
+#include <algorithm>
+#include <sstream>
 using namespace std;
-bool isEnough(const string &s)
+bool sort_re(int a , int b)
 {
-    return s.size()<=3?true:false;
+    return a>b?true:false;
 }
-bool findshabi(const string &s)
-{
-    if(s == "dubo")
-        return true;
-    else
-        return false;     
-}
-int main(int argc , char *argv[])
-{
-    const char *a[] = {"c++" , "c","python","c#","vb+","css","dubo","liuchao","lishujun"};
-    vector<string> obj(a,a+sizeof(a)/sizeof(char *));
-    vector<string>::iterator end_true= partition(obj.begin(),obj.end(),isEnough);
-    //auto end_true = partition(obj.begin(),obj.end(),isEnough);
-    for(auto e = obj.begin();e != end_true ; e++)
+int main() {
+    vector<int> num;
+    int tmp;
+    char c;
+    string str;
+    string b = "10 2 3 4 50 6 7 8 9";
+    int accu = 0;
+    for(auto &e :b)
     {
-        cout<<*e<<" ";
+        if(isdigit(e))
+        {
+            cout<<e<<endl;
+            accu += e;
+        }
     }
-    cout<<endl;
-    auto print_string = [](const string &s){cout<<s<<endl;};
-    for_each(end_true , obj.end() , print_string);
-    cout<<endl;
-
-    auto shabi = find_if(obj.cbegin() , obj.cend() , findshabi);
-    cout<<"shabi is in "<<*shabi<<endl;
+    cout<<accu<<endl;
+    if(getline(cin, str)) return 0;
+    istringstream ist(str);
+    while (ist>>tmp)
+    {
+        num.push_back(tmp);
+        cout<<tmp<<endl;
+    }
+    sort(num.begin(),num.end(),sort_re);
+    auto endNum = num.size();
+    int i = 1;
+    for(auto &e:num)
+    {
+        if(endNum != i)
+        {
+        	cout<<e<<",";
+        }
+        else
+        {
+            cout<<e;
+        }
+        i++;
+    }
     return 0;
 }

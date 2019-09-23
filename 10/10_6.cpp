@@ -1,18 +1,43 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
-#include <iomanip>
+#include <map>
+#include <set>
 using namespace std;
-int main(int argc , char *argv[])
-{
-    vector<int> obj;
-    int a = 2;
-    fill_n(back_inserter(obj),10,0);
-    for(auto e : obj)
+int main() {
+    map<char,size_t>word_count;
+    map<char,int>word_order;
+   	set<char>save;
+    int i = 0;
+    string word;
+    cin>>word;
+    for(auto &e:word)
     {
-        cout<<e<<endl;
+        if(save.find(e) != save.end())
+        {
+        	word_count[e]++;
+        }
+        else
+        {
+        	word_count[e]++;
+            word_order[e] = i++;
+            save.insert(e);
+        }
     }
-    cout<<obj.size()<<endl;
-    cout<<setfill('x')<<setiosflags(ios::left)<<setw(2)<<a<<endl;
+    i = 0;
+ 
+    cout<<"this second version"<<endl;
+    while(!save.empty())
+    {
+        for(auto &q : save)
+        {
+           if(word_order[q] == i)
+            {
+                cout<<q<<":"<<word_count[q]<<";";
+                save.erase(q);
+                i++;
+                //break;
+            }
+        }
+    }
+    cout<<endl;
     return 0;
 }
