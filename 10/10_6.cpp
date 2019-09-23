@@ -24,7 +24,7 @@ int main() {
     }
     i = 0;
  
-    cout<<"this second version"<<endl;
+    cout<<"this first version"<<endl;
     while(!save.empty())
     {
         for(auto &q : save)
