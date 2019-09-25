@@ -23,8 +23,6 @@ int main() {
         }
     }
     i = 0;
- 
-    cout<<"this first version"<<endl;
     while(!save.empty())
     {
         for(auto &q : save)
@@ -34,7 +32,7 @@ int main() {
                 cout<<q<<":"<<word_count[q]<<";";
                 save.erase(q);
                 i++;
-                //break;
+                break;
             }
         }
     }
